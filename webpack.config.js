@@ -11,7 +11,7 @@ module.exports ={
         ]
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         filename: 'index_bundle.js'
     },
     plugins: [
@@ -22,5 +22,5 @@ module.exports ={
         //     'NODE_ENV': 'development'
         // })
     ],
-    mode: 'development',
+    mode: 'production',
 }
