@@ -1,40 +1,50 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Build and deploy
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
-
-      # Runs a set of commands using the runners shell
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+      - name: Install node.js
+        uses: actions/setup-node@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
-          clean: true
+          node-version: 13.x
           
+      - name: Install NPM packages
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+        
+      - name: Upload production ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: production-files
+        path: ./build
+        
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
