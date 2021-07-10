@@ -7,7 +7,8 @@ module.exports ={
     module: {
         rules:[
             {test: /\.(js)$/, use: 'babel-loader'},
-            {test: /\.(css)$/, use: ['style-loader', 'css-loader']}
+            {test: /\.(css)$/, use: ['style-loader', 'css-loader']},
+            { test: /\.(png|jpg)$/, use: 'url-loader?limit=8192', }
         ]
     },
     output: {
@@ -22,5 +23,5 @@ module.exports ={
         //     'NODE_ENV': 'development'
         // })
     ],
-    mode: 'production',
+    mode: 'development',
 }
