@@ -30,7 +30,7 @@ class App extends React.Component{
               ? <Quiz selectedCategory={selectedCategory}></Quiz>
               :<Category 
                 categories={categories}
-                selectedCategory={(event)=>{this.setState({ selectedCategory: event.target.value})}}></Category>}
+                selectedCategory={(event)=>{this.setState({ selectedCategory: event.target.alt}); console.log('event target', event.target);}}></Category>}
 
                 
             </div>
