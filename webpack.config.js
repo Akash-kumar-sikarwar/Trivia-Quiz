@@ -23,5 +23,5 @@ module.exports ={
         //     'NODE_ENV': 'development'
         // })
     ],
-    mode: 'development',
+    mode: 'production',
 }
