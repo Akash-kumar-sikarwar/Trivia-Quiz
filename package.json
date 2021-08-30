@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve",
     "build": "NODE_ENV='production' && webpack",
+    "lint": "npx eslint src/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
@@ -28,6 +29,12 @@
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "style-loader": "^2.0.0",
