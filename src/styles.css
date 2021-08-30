@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-html, head, body{
+:root {
+    --app-background-color: #7ad7f0;
+}
+
+html, head, body {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #7b4397;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #dc2430, #7b4397);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #dc2430, #7b4397); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: var(--app-background-color);
 }
 
-.category-list{
+.category-list {
     margin: 30px auto;
     display: flex;
     flex-flow: row wrap;
@@ -21,39 +23,39 @@ body{
     padding-left: 0;
 }
 
-.category-item{
+.category-item {
     padding: 10px;
     margin: 10px;
 }
 
-.category-btn{
+.category-btn {
     margin: 5px;
     padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
     text-transform: capitalize;
-    min-width: 150px;
+    min-width: 250px;
     border-radius: 30px;
     color: white;
     background-color: cadetblue;
 }
 
-.title{
+.title {
     color: white;
     margin: 50px auto;
     text-align: center;
 }
 
-.card{
+.card {
     display: flex;
     flex-flow: row wrap;
     position: relative;
     border-radius: 5px;
-    border: 2px solid white;
+    border: 10px solid white;
 }
 
-.banner-title{
-    background-color: rgba(0,0,0,.7);
+.banner-title {
+    background-color: rgba(0, 0, 0, .7);
     bottom: 0;
     left: 0;
     color: white;
@@ -61,17 +63,17 @@ body{
     width: 100%;
     max-height: 100%;
     overflow: hidden;
-    height: 25px;
+    height: 30px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
 }
 
-.label{
+.label {
     text-transform: uppercase;
 }
 
-.category-thumbnail{
+.category-thumbnail {
     height: 200px;
     width: 250px;
     border-radius: inherit;
@@ -79,7 +81,7 @@ body{
 }
 
 /* Timer styles */
-.timer{
+.timer {
     margin: 10px auto;
     padding: 5px;
     background: white;
@@ -87,78 +89,78 @@ body{
     color: red;
 }
 
-.main-header{
+.main-header {
     text-transform: uppercase;
     margin: 20px;
     color: white;
 }
 
-.center-text{
+.center-text {
     text-align: center;
     align-items: center;
 }
 
-.main-container{
-    margin: 10px 150px ;
+.main-container {
+    margin: 10px 150px;
     padding: 5px 20px 20px 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
-.resultScore{
+.resultScore {
     background-color: white;
     margin: 50px auto;
     padding: 20px;
     max-width: 300px;
-    border-radius: 25px;
-}
-.resultScore > h3{
-    color: red;
+    border-radius: 5px;
 }
 
-.question-container{
+.resultScore > h3 {
+    /*color: red;*/
+}
+
+.question-container {
     list-style: none;
-    padding: 20px;
+    padding: 80px;
     max-width: 450px;
-    margin: 0px auto;
     color: white;
-    order:2;
+    order: 2;
     flex: 1 1;
     transition: all 1s;
 }
 
-.question-card{
-    border-radius: 30px;
-    min-height: 350px;
+.question-card {
+    border-radius: 5px;
+    min-height: 450px;
     background-color: white;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.questionText{
+.questionText {
     font-family: 'Oswald', sans-serif;
     font-weight: lighter;
     font-size: 1.5em;
     padding: 20px;
-    margin: 0;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     color: white;
     text-transform: uppercase;
-    background: linear-gradient(to left, #fcb045e7, #e21c1cda, #833ab4);
-    /* background-color: black;
-    color: white; */
+    background: #0099bd;
 }
 
-.header-sm{
+.header-sm {
     margin-top: 0;
     margin-bottom: 30px;
 }
 
-.answer-list{
+.answer-list {
     list-style: none;
     padding: 10px;
 }
-.btn-container{
+
+.btn-container {
     /* display: flex;
     flex-direction: row;
     justify-content: space-between; */
@@ -166,56 +168,57 @@ body{
 }
 
 
-.btn:hover{
+.btn:hover {
     cursor: pointer;
 }
 
-.prev-btn{
-   order:1
+.prev-btn {
+    order: 1
 }
 
-.next-btn{
-    order:3
+.next-btn {
+    order: 3
 }
 
-.answer-label{
+.answer-label {
     padding-left: 10px;
 }
 
-.answer-btn{
+.answer-btn {
     min-width: 400px;
     padding: 10px;
     margin: 10px;
-    border-radius: 30px;
+    border-radius: 5px;
     background-color: white;
     font-size: 1.2em;
     font-weight: bold;
-    border: 2px solid black;
+    border: 1px solid black;
     text-align: left;
     display: flex;
     align-items: center;
 }
 
-.answer-btn:hover{
+.answer-btn:hover {
     cursor: pointer;
-    background-color: #bf36bf;
-    box-shadow: 2px 2px 6px 0px black;
-
+    background-color: aliceblue;
+    border: 1px solid #b8daff;
 }
 
-.optionNumber{
+.optionNumber {
     padding: 0 5px;
     margin: 0 15px;
     border: 2px solid black;
     border-radius: 50%;
 }
 
-.greenButton{
-    background-color: green;
+.greenButton {
+    background-color: #C8E6C9;
+    border: 1px solid #439446;
 }
 
 .redButton{
-    background-color: red;
+    border: 1px solid #e9818e;
+    background-color: #fcdfe2;
 }
 
 .logo{
