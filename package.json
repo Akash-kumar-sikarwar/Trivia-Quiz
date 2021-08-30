@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve",
     "build": "NODE_ENV='production' && webpack",
-    "lint": "npx eslint src/*",
+    "lint": "npx eslint src/*/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
